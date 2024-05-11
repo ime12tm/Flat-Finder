@@ -14,23 +14,6 @@ export const ToastProvider = ({ children }: { children: ReactNode | undefined })
   const toastWarning = (message: string, options?: ToastOptions) => showToast(message, { ...options, type: "warning" });
   const toastInfo = (message: string, options?: ToastOptions) => showToast(message, { ...options, type: "info" });
 
-  // interface ToastContextType {
-  //   toastSuccess: (message: string, options?: ToastOptions) => void;
-  //   toastError: (message: string, options?: ToastOptions) => void;
-  //   toastWarning: (message: string, options?: ToastOptions) => void;
-  //   toastInfo: (message: string, options?: ToastOptions) => void;
-  // }
-
-  // const ToastContext = createContext<ToastContextType | undefined>(undefined);
-
-  // export const useToast = () => {
-  //   const context = useContext(ToastContext);
-  //   if (!context) {
-  //     throw new Error("useToast must be used within a ToastProvider");
-  //   }
-  //   return context;
-  // };
-
   return (
     <ToastContext.Provider value={{ toastSuccess, toastError, toastWarning, toastInfo }}>
       {children}

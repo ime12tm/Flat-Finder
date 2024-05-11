@@ -12,7 +12,7 @@ function AppRoutes() {
     { name: <AddFlat />, path: "/add-flat" },
     { name: <EditFlat />, path: "/edit-flat" },
     { name: <Dashboard />, path: "/dashboard" },
-    { name: <EditFlat />, path: "/edit-flat/:id" },
+    { name: <EditFlat />, path: "/edit/:id" },
   ];
   return (
     <BrowserRouter>

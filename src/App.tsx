@@ -5,6 +5,7 @@ import { createContext, Dispatch, SetStateAction, useEffect, useState } from "re
 import { User } from "./interface";
 import { fetchUser } from "./firebase/api/auth";
 import { Flat } from "./interface";
+import { ToastProvider } from "./contexts/ToastContext";
 
 interface UserDataContextInt {
   userDetails: User;
@@ -54,13 +55,15 @@ function App() {
     return <SpinnerLoader />;
   }
   return (
-    <FlatContext.Provider value={{ flatApp, setFlatApp }}>
-      <UserDataContext.Provider value={{ userDetails, setUserDetails }}>
-        <FavContext.Provider value={{ favorite, setFavorite }}>
-          <AppRoutes />
-        </FavContext.Provider>
-      </UserDataContext.Provider>
-    </FlatContext.Provider>
+    <ToastProvider>
+      <FlatContext.Provider value={{ flatApp, setFlatApp }}>
+        <UserDataContext.Provider value={{ userDetails, setUserDetails }}>
+          <FavContext.Provider value={{ favorite, setFavorite }}>
+            <AppRoutes />
+          </FavContext.Provider>
+        </UserDataContext.Provider>
+      </FlatContext.Provider>
+    </ToastProvider>
   );
 }
 

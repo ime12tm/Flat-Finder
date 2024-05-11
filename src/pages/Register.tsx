@@ -2,7 +2,7 @@ import { useState } from "react";
 import SpinnerLoader from "../components/SpinnerLoader/SpinnerLoader";
 import { registerUser } from "../firebase/api/auth";
 import { useNavigate } from "react-router";
-// import { useToast } from "../contexts/ToastContext";
+import { useToast } from "../contexts/ToastContext";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
@@ -11,7 +11,7 @@ const Register = () => {
   // we will navigate to login page after registering
   const navigate = useNavigate();
   // toast notifications hook
-  // const { toastSuccess, toastError, toastWarning } = useToast();
+  const { toastSuccess, toastError, toastWarning } = useToast();
   // useForm hook
   const {
     register,
@@ -29,14 +29,14 @@ const Register = () => {
     console.log(data);
     try {
       setIsLoading(true);
-      // toastWarning("Creating your account. Please wait...");
+      toastWarning("Creating your account. Please wait...");
       await registerUser(data);
-      // toastSuccess("User registered successfully");
+      toastSuccess("User registered successfully");
       navigate("/login");
     } catch (error: string | any) {
-      if (error.message.includes("auth/email-already-in-use")) console.log("This email address is already in use");
+      if (error.message.includes("auth/email-already-in-use")) toastError("This email address is already in use");
       else console.log("An error has occured while registering user");
-      console.log(error.message);
+      toastError(error.message);
     } finally {
       setIsLoading(false);
     }

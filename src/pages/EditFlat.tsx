@@ -11,6 +11,7 @@ const EditFlat = () => {
   const navigate = useNavigate();
 
   const handleProduct = async () => {
+    console.log(id);
     setFlat((await getFlat(id as string)) as Flat);
   };
 
