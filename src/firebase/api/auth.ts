@@ -2,12 +2,11 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { auth } from "./firebase.config";
 import { User } from "../../interface";
 import { db } from "./firebase.config";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
 
 export const registerUser = async (data: User) => {
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, data.email, data.password as string);
-    console.log("User Registered", userCredentials);
     createUserInDb({
       uid: userCredentials.user.uid,
       email: data.email,
@@ -60,4 +59,9 @@ export async function fetchUser(id: string) {
 export async function signOutUser() {
   await signOut(auth);
   console.log("User signed out");
+}
+export async function updateUser(updatedUser: User) {
+  const docRef = doc(db, "users", updatedUser.uid);
+  await updateDoc(docRef, updatedUser);
+  console.log("User updated");
 }

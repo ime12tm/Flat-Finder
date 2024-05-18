@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { addFlat } from "../firebase/methods/Flats/flats";
 import Button from "../components/Buttons/ButtonComponent";
 import { Flat } from "../interface";
+import { UserDataContext } from "../App";
 
 const AddFlat = () => {
   const [product, setProduct] = useState({} as Flat);
+  const { userDetails } = useContext(UserDataContext);
 
   const navigate = useNavigate();
 
@@ -16,7 +18,8 @@ const AddFlat = () => {
   };
 
   const handleSubmit = async () => {
-    await addFlat(product);
+    console.log("123", { ...product, createdBy: userDetails.email });
+    await addFlat({ ...product, createdBy: userDetails.email });
     console.log(product);
     navigate("/");
   };
@@ -79,7 +82,6 @@ const AddFlat = () => {
                 className="w-[100px] border-2 p-2 rounded-md"
               />
             </div>
-
             <input
               onChange={(e) => handleChange(e)}
               type="number"

@@ -10,8 +10,8 @@ const Navbar = () => {
   const pages = [
     { pageName: "Home", path: "/" },
     // { pageName: "Dashboard", path: "/dashboard" },
-    { pageName: "My Profile", path: "/myProfile" },
-    { pageName: "My Flats", path: "/myFlats" },
+    { pageName: "My Profile", path: "/my-profile" },
+    { pageName: "My Flats", path: "/my-flats" },
     { pageName: "Add Flat", path: "/add-flat" },
     { pageName: "Favorites", path: "/favorites" },
   ];
@@ -45,20 +45,22 @@ const Navbar = () => {
         <img src={websiteLogo} className="" alt="logo" />
       </div>
       <div>
-        <ul className="flex gap-10">
-          {pages.map((page, index) => (
-            <li key={index}>
-              <NavLink to={page.path} className="text-base hover:text-gray-500">
-                {page.pageName}
+        {userDetails.email ? (
+          <ul className="flex gap-10">
+            {pages.map((page, index) => (
+              <li key={index}>
+                <NavLink to={page.path} className="text-base hover:text-gray-500">
+                  {page.pageName}
+                </NavLink>
+              </li>
+            ))}
+            {userDetails.role === "admin" ? (
+              <NavLink to={"/dashboard"}>
+                <li>Dashboard</li>
               </NavLink>
-            </li>
-          ))}
-          {userDetails.role === "admin" ? (
-            <NavLink to={"/dashboard"}>
-              <li>Dashboard</li>
-            </NavLink>
-          ) : null}
-        </ul>
+            ) : null}
+          </ul>
+        ) : null}
       </div>
       {userDetails.email ? (
         <div className="flex justify-center items-center gap-3">

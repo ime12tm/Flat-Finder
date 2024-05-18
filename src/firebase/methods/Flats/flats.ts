@@ -9,6 +9,7 @@ export async function addFlat(flat: Flat) {
 
   await setDoc(doc(db, "flats", uid), {
     id: uid,
+    createdBy: flat.createdBy,
     title: flat.title,
     city: flat.city,
     streetName: flat.streetName,
@@ -25,7 +26,7 @@ export async function addFlat(flat: Flat) {
 }
 
 export async function updateFlat(updatedFlat: Flat) {
-  const flatRef = doc(db, "products", updatedFlat.id as string);
+  const flatRef = doc(db, "flats", updatedFlat.id as string);
   console.log("Flat", updatedFlat);
   await updateDoc(flatRef, { ...updatedFlat });
 }

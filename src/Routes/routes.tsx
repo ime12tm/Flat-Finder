@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-import { Homepage, Login, Register, AddFlat, Dashboard } from "../pages";
+import { Homepage, Login, Register, AddFlat, Dashboard, MyProfile, MyFlats } from "../pages";
 import EditFlat from "../pages/EditFlat";
 
 function AppRoutes() {
@@ -13,6 +13,8 @@ function AppRoutes() {
     { name: <EditFlat />, path: "/edit-flat" },
     { name: <Dashboard />, path: "/dashboard" },
     { name: <EditFlat />, path: "/edit/:id" },
+    { name: <MyProfile />, path: "/my-profile" },
+    { name: <MyFlats />, path: "/my-flats" },
   ];
   return (
     <BrowserRouter>

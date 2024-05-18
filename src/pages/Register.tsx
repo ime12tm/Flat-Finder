@@ -26,7 +26,6 @@ const Register = () => {
   // register function
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = async (data: any) => {
-    console.log(data);
     try {
       setIsLoading(true);
       toastWarning("Creating your account. Please wait...");
