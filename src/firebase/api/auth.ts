@@ -60,8 +60,16 @@ export async function signOutUser() {
   await signOut(auth);
   console.log("User signed out");
 }
-export async function updateUser(updatedUser: User) {
-  const docRef = doc(db, "users", updatedUser.uid);
-  await updateDoc(docRef, updatedUser);
+export async function updateUser(data: User) {
+  const docRef = doc(db, "users", data.uid);
+  await updateDoc(docRef, {
+    uid: data.uid,
+    email: data.email,
+    firstName: data.firstName,
+    lastName: data.lastName,
+    birthDate: data.birthDate,
+    role: data.role,
+    favorites: data.favorites,
+  });
   console.log("User updated");
 }

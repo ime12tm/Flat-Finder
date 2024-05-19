@@ -26,6 +26,9 @@ const MyFlats = () => {
     await fetchProducts();
   };
   useEffect(() => {
+    if (!JSON.parse(localStorage.getItem("loggedUser") as string)) {
+      navigate("/login");
+    }
     fetchProducts();
   }, []);
 

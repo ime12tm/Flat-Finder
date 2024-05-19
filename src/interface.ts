@@ -3,7 +3,7 @@ export interface User {
   firstName: string;
   lastName: string;
   email: string;
-  birthDate: Date;
+  birthDate: string;
   password?: string;
   role: string;
   favorites: Favorite[];
@@ -27,14 +27,6 @@ export interface ButtonProps {
   isRemoveFav?: boolean;
 }
 
-export interface Product {
-  id?: string;
-  name: string;
-  price: number;
-  description: string;
-  quantity: number;
-  image: string;
-}
 export interface Flat {
   id?: string;
   createdBy: string;
@@ -50,11 +42,6 @@ export interface Flat {
   phone: number;
   image: string;
   dateAvailable: string;
-}
-
-export interface ProductsTableProps {
-  products: Product[];
-  buttonConfig: ButtonProps;
 }
 export interface FlatTableProps {
   flats: Flat[];

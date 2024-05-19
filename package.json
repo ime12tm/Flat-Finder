@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/react-toastify": "^4.1.0",
+    "@types/uuid": "^9.0.8",
     "firebase": "^10.11.0",
     "hamburger-react": "^2.5.0",
     "react": "^18.2.0",

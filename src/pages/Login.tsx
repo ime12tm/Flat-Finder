@@ -32,10 +32,10 @@ const Login = () => {
 
   //   setUser({ ...user, [name]: value });
   // };
-  const handleLogin = async (data: any) => {
+  const handleLogin = async (data: Partial<User>) => {
     try {
       setIsLoading(true);
-      const userCredentials = await logInUser(data);
+      const userCredentials = await logInUser(data as User);
       setUserDetails(userCredentials as User);
       navigate("/");
     } catch (error: any) {
@@ -78,7 +78,7 @@ const Login = () => {
                   }`}
                   {...register("email", { validate: validateEmail })}
                 />
-                {errors.email && <p className="text-red-600 text-[12px]">{errors.email.message}</p>}
+                {errors.email && <p className="text-red-600 text-[12px]">{(errors.email.message) as string}</p>}
               </label>
               <label htmlFor="password" className="wfull flex flex-col text-[14px] gap-1">
                 Password:

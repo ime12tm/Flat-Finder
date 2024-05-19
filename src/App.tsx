@@ -37,10 +37,7 @@ function App() {
 
       if (loggedUser.length) {
         const user = await fetchUser(loggedUser);
-        console.log(user);
         setUserDetails(user as User);
-
-        // setFavorite((await getSpecificProducts(user?.cart as CartProduct[])) as Product[]);
       }
     } finally {
       setLoading(false);

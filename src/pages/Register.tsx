@@ -87,7 +87,7 @@ const Register = () => {
                     },
                   })}
                 />
-                <p className="text-sm h-6 text-red-600">{errors.firstName && errors.firstName.message}</p>
+                <p className="text-sm h-6 text-red-600">{errors.firstName && (errors.firstName.message) as string}</p>
               </div>
             </div>
 
@@ -115,7 +115,7 @@ const Register = () => {
                     },
                   })}
                 />
-                <p className="text-sm h-6 text-red-600">{errors.lastName && errors.lastName.message}</p>
+                <p className="text-sm h-6 text-red-600">{errors.lastName && (errors.lastName.message) as string}</p>
               </div>
             </div>
           </div>
@@ -138,7 +138,7 @@ const Register = () => {
                 },
               })}
             />
-            <p className="text-sm h-6 text-red-600">{errors.email && errors.email.message}</p>
+            <p className="text-sm h-6 text-red-600">{errors.email && (errors.email.message) as string}</p>
 
             {/* password */}
             <label htmlFor="password" className="cursor-pointer mb-1">
@@ -157,7 +157,7 @@ const Register = () => {
                 },
               })}
             />
-            <p className="text-sm h-6 text-red-600">{errors.password && errors.password.message}</p>
+            <p className="text-sm h-6 text-red-600">{errors.password && (errors.password.message) as string}</p>
 
             {/* confirm password */}
             <label htmlFor="confirmPassword" className="cursor-pointer mb-1">
@@ -173,7 +173,7 @@ const Register = () => {
                 validate: (value) => value === password || "The passwords do not match",
               })}
             />
-            <p className="text-sm h-6 text-red-600">{errors.confirmPassword && errors.confirmPassword.message}</p>
+            <p className="text-sm h-6 text-red-600">{errors.confirmPassword && (errors.confirmPassword.message) as string}</p>
 
             <label htmlFor="phoneNumber" className="cursor-pointer mb-1">
               Date of Birth
@@ -187,7 +187,7 @@ const Register = () => {
                 required: "This field is mandatory",
               })}
             />
-            <p className="text-sm h-6 text-red-600">{errors.birthDate && errors.birthDate.message}</p>
+            <p className="text-sm h-6 text-red-600">{errors.birthDate && (errors.birthDate.message) as string}</p>
 
             <button
               className="w-full h-[45px] text-white bg-blue-500 rounded-[5px] shadow-md font-bold md:hover:bg-blue-700"

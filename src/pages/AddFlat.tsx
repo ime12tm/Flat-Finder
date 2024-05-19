@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { addFlat } from "../firebase/methods/Flats/flats";
 import Button from "../components/Buttons/ButtonComponent";
@@ -18,12 +18,14 @@ const AddFlat = () => {
   };
 
   const handleSubmit = async () => {
-    console.log("123", { ...product, createdBy: userDetails.email });
     await addFlat({ ...product, createdBy: userDetails.email });
-    console.log(product);
     navigate("/");
   };
-
+  useEffect(() => {
+    if (!JSON.parse(localStorage.getItem("loggedUser") as string)) {
+      navigate("/login");
+    }
+  }, []);
   return (
     <div className="w-full">
       <div className="w-[50%] m-auto mt-[5%] flex flex-col border-2 p-2 rounded-xl">

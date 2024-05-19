@@ -2,7 +2,14 @@ import { createContext, useContext, ReactNode } from "react";
 import { ToastContainer, toast, ToastOptions } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ToastContext = createContext();
+type ToastContextInt = {
+  toastSuccess: (message: string, options?: ToastOptions) => void;
+  toastError: (message: string, options?: ToastOptions) => void;
+  toastWarning: (message: string, options?: ToastOptions) => void;
+  toastInfo: (message: string, options?: ToastOptions) => void;
+};
+
+const ToastContext = createContext({} as ToastContextInt);
 
 export const useToast = () => useContext(ToastContext);
 

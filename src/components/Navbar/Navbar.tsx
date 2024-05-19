@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { UserDataContext } from "../../App";
 import { signOutUser } from "../../firebase/api/auth";
 import websiteLogo from "../../assets/logo_Roberic_transparent.png";
@@ -9,7 +9,6 @@ import "../../App.css";
 const Navbar = () => {
   const pages = [
     { pageName: "Home", path: "/" },
-    // { pageName: "Dashboard", path: "/dashboard" },
     { pageName: "My Profile", path: "/my-profile" },
     { pageName: "My Flats", path: "/my-flats" },
     { pageName: "Add Flat", path: "/add-flat" },

@@ -45,6 +45,14 @@ export async function getAllFlats() {
   });
   return arr;
 }
+export async function getAllUsers() {
+  const arr: DocumentData[] = [];
+  const data = await getDocs(collection(db, "users"));
+  data.forEach((doc) => {
+    arr.push(doc.data());
+  });
+  return arr;
+}
 
 export async function getFlat(id: string) {
   const flatRef = doc(db, "flats", id);

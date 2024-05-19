@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import { Homepage, Login, Register, AddFlat, Dashboard, MyProfile, MyFlats } from "../pages";
 import EditFlat from "../pages/EditFlat";
+import FlatView from "../pages/FlatView";
 
 function AppRoutes() {
   const routes = [
@@ -15,6 +17,7 @@ function AppRoutes() {
     { name: <EditFlat />, path: "/edit/:id" },
     { name: <MyProfile />, path: "/my-profile" },
     { name: <MyFlats />, path: "/my-flats" },
+    { name: <FlatView />, path: "/flat/:id" },
   ];
   return (
     <BrowserRouter>
@@ -24,6 +27,7 @@ function AppRoutes() {
           <Route key={path} path={path} element={name} />
         ))}
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
