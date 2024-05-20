@@ -4,16 +4,12 @@ import { logInUser } from "../firebase/api/auth";
 import { User } from "../interface";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-// import { useToast } from "../../contexts/ToastContext";
+import { useToast } from "../contexts/ToastContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import SpinnerLoader from "../components/SpinnerLoader/SpinnerLoader";
 
 const Login = () => {
-  // const { toastSuccess } = useToast();
-  // const [user, setUser] = useState({
-  //   email: "",
-  //   password: "",
-  // });
+  const { toastSuccess, toastError } = useToast();
   const { setUserDetails } = useContext(UserDataContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -23,23 +19,15 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  // const formSubmit = () => {
-  //   // toastSuccess("Te-ai inregistrat cu succes!");
-  //   console.log("You're loggend In!");
-  // };
-  // const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-  //   const { name, value } = e.target;
-
-  //   setUser({ ...user, [name]: value });
-  // };
   const handleLogin = async (data: Partial<User>) => {
     try {
       setIsLoading(true);
       const userCredentials = await logInUser(data as User);
+      toastSuccess("Log in successfully");
       setUserDetails(userCredentials as User);
       navigate("/");
     } catch (error: any) {
-      console.log(error.message);
+      toastError(error.message);
     } finally {
       setIsLoading(false);
     }
@@ -50,7 +38,7 @@ const Login = () => {
     return emailRegex.test(value) || "Insert a valid email address.";
   };
   const onError = () => {
-    console.log("Entered data does not match.");
+    toastError("Entered data does not match.");
   };
 
   return (
@@ -78,7 +66,7 @@ const Login = () => {
                   }`}
                   {...register("email", { validate: validateEmail })}
                 />
-                {errors.email && <p className="text-red-600 text-[12px]">{(errors.email.message) as string}</p>}
+                {errors.email && <p className="text-red-600 text-[12px]">{errors.email.message as string}</p>}
               </label>
               <label htmlFor="password" className="wfull flex flex-col text-[14px] gap-1">
                 Password:

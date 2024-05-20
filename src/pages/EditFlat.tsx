@@ -41,14 +41,14 @@ const EditFlat = () => {
             placeholder="id"
             name="id"
             className="w-full border-2 p-2 rounded-md"
-            value={flat.id}
+            defaultValue={flat.id}
             readOnly
           />
           <input
             onChange={(e) => handleChange(e)}
             type="text"
             placeholder="name"
-            name="name"
+            name="title"
             className="w-full border-2 p-2 rounded-md"
             defaultValue={flat.title}
           />

@@ -6,5 +6,6 @@ import Register from "./Register";
 import AddFlat from "./AddFlat";
 import MyProfile from "./MyProfile";
 import MyFlats from "./MyFlats";
+import ForgotPassword from "./ForgotPassword";
 
-export { Homepage, Login, Register, AddFlat, Dashboard, MyProfile, MyFlats };
+export { Homepage, Login, Register, AddFlat, Dashboard, MyProfile, MyFlats, ForgotPassword };

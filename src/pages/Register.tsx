@@ -20,11 +20,9 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  // we need to watch password to compare it to confirmPassword
   const password = watch("password");
 
-  // register function
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const onSubmit = async (data: any) => {
     try {
       setIsLoading(true);
@@ -41,7 +39,7 @@ const Register = () => {
     }
   };
 
-  // we will show a toast notification
+
   const onError = () => {
     console.log("Entered data does not match the required format.");
   };

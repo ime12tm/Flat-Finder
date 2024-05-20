@@ -57,6 +57,5 @@ export async function getAllUsers() {
 export async function getFlat(id: string) {
   const flatRef = doc(db, "flats", id);
   const flat = await getDoc(flatRef);
-  console.log(flat.data());
   return flat.data();
 }

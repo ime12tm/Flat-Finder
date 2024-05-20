@@ -2,21 +2,24 @@ import { useContext, useEffect } from "react";
 import { Flat } from "../interface";
 import { FlatContext } from "../App";
 import { getAllFlats } from "../firebase/methods/Flats/flats";
+import { useParams } from "react-router-dom";
 
 const FlatView = () => {
   const { flatApp, setFlatApp } = useContext(FlatContext);
+  const { id } = useParams();
 
   const fetchFlat = async () => {
     const allFlats = await getAllFlats();
-    const myFlat = allFlats.filter((flat) => flat.id === allFlats[0].id);
+    console.log(allFlats);
+    const myFlat = allFlats.filter((flat) => flat.id === id);
     setFlatApp(myFlat as Flat[]);
+    console.log(myFlat);
     return myFlat;
   };
-  console.log(flatApp);
   useEffect(() => {
     fetchFlat();
   }, []);
-  //   const navigate = useNavigate();
+
   return (
     <>
       <div className="w-full">

@@ -28,7 +28,7 @@ const AddFlat = () => {
   }, []);
   return (
     <div className="w-full">
-      <div className="w-[50%] m-auto mt-[5%] flex flex-col border-2 p-2 rounded-xl">
+      <div className="w-[50%] m-auto mt-[5%] mb-24 flex flex-col border-2 p-2 rounded-xl">
         <h2 className="text-xl ml-5 mb-5 mt-5 font-semibold">Add Flat</h2>
         <div className="p-4 flex flex-col justify-center items-start gap-4">
           <input

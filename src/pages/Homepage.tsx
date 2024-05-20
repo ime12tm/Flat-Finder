@@ -35,30 +35,8 @@ const Home = () => {
     fetchFlats();
   }, []);
 
-  // const handleAdd = async () => {
-  //   await addProduct(products[2] as Product);
-  // };
-
-  // if (!flats.length) {
-  //   return (
-  //     <>
-  //       <SpinnerLoader />
-  //     </>
-  //   );
-  // }
-
   return (
     <>
-      {/* <Button
-        text="Add products"
-        backgroundColor="bg-gray-200"
-        handleClick={handleAdd}
-      /> */}
-      {/* <Button
-        text="Get all products"
-        backgroundColor="bg-gray-200"
-        handleClick={fetchProducts}
-      /> */}
       <FlatRender flats={flatApp} buttonConfig={buttonConfig} />
     </>
   );

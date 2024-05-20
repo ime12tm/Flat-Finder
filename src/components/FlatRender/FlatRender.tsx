@@ -38,12 +38,12 @@ const FlatRender = ({ flats }: FlatTableProps) => {
 
   return (
     <>
-      <div className="container w-[1280px] mt-5 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-auto gap-4">
+      <div className="container w-[1280px] mt-5 mb-20 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-auto gap-4">
         {flats.map((flat: Flat) => (
           <div key={flat.id} className="flex justify-between items-center w-full gap-10">
             <div className="h-full rounded-lg bg-grey w-1/3 overflow-auto flex flex-col justify-start items-center gap-5 sm:w-2/3 md:w-full">
               <img src={flat.image} className="w-full" />
-              <div className="flex flex-col justify-start items-start">
+              <div className="flex flex-col min-h-[400px] justify-between items-start">
                 <p className="text-xl font-bold pb-5">{flat.title}</p>
                 <div className="flex gap-2 pb-5">
                   <p>{flat.city} |</p>
@@ -58,7 +58,7 @@ const FlatRender = ({ flats }: FlatTableProps) => {
                   </p>
                 </div>
                 <p className="pb-5">Available from: {flat.dateAvailable}</p>
-                <p className="pb-5">{flat.description}</p>
+                <p className="pb-5 ">{flat.description}</p>
                 <NavLink to={`/flat/${flat.id}`} className="font-bold text-lg">
                   See More...
                 </NavLink>
