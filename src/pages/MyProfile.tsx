@@ -130,6 +130,7 @@ const MyProfile = () => {
               type="text"
               placeholder="Email address"
               defaultValue={userDetails?.email}
+              readOnly
               {...register("email", {
                 required: { value: true, message: "This field is mandatory" },
                 pattern: {
@@ -189,6 +190,7 @@ const MyProfile = () => {
               type="date"
               placeholder="Date of Birth"
               defaultValue={userDetails?.birthDate}
+              readOnly
               {...register("birthDate", {
                 required: "This field is mandatory",
               })}

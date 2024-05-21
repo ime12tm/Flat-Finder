@@ -17,11 +17,6 @@ const Home = () => {
     return allProducts;
   };
 
-  // const handleProducts = async () => {
-  //   const prod = await getSpecificProducts(userDetails.cart);
-  //   console.log(prod);
-  // };
-
   const buttonConfig = {
     text: "Add to cart",
     backgroundColor: "bg-gray-200",
